@@ -23,22 +23,30 @@ class PresensiController extends Controller
         $lokasi = $request->lokasi;
         // -6.223910949538835, 106.64876614782546
         //-6.224833003263079, 106.6498009576709
-        $latitudekantor = -6.224751872097982; 
-        $longitudekantor = 106.64957259630353;
+        $latitudekantor = -6.224833003263079; 
+        $longitudekantor = 106.6498009576709;
         $location = explode(',', $lokasi);
         $latitude = $location[0];
         $longitude = $location[1];
 
         $jarak = $this->distance($latitudekantor, $longitudekantor, $latitude, $longitude);
         $radius = round($jarak['meters']);
+
+        $cek = DB::table('presensi')->where('tgl_presensi', $tgl_presensi)->where('nik', $nik)->count();
+
+        if($cek > 0){
+            $ket = 'out';
+        }else{
+            $ket = 'in';
+        }
         $image = $request->image;   
         $folderPath = 'public/uploads/absensi/' . $nik . '/';
-        $formatName = $nik . "-" . $tgl_presensi;
+        $formatName = $nik . "-" . $tgl_presensi . '-' . $ket;
         $image_parts = explode(';base64', $image);
         $image_base64 = base64_decode($image_parts[1]);
         $fileName = $formatName . ".png";
         $file = $folderPath . $fileName;
-        $cek = DB::table('presensi')->where('tgl_presensi', $tgl_presensi)->where('nik', $nik)->count();
+        
         if($radius > 20){
             echo "Radius_Error|Anda Berada di Luar Radius";
         }else{
@@ -85,5 +93,9 @@ class PresensiController extends Controller
         $kilometers = $miles * 1.609344;
         $meters = $kilometers * 1000;
         return compact('meters');
+    }
+
+    public function editprofile(){
+        return view('presensi.editprofile');
     }
 }

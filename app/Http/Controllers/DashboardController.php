@@ -11,8 +11,25 @@ class DashboardController extends Controller
 {
     public function index(){
         $hari = date("Y-m-d");
+        $bulanini = date('m') * 1;
+        $tahunini = date('Y');
         $nik = Auth::guard('karyawan')->user()->nik;
         $presensihariini = DB::table('presensi')->where('nik', $nik)->where('tgl_presensi',$hari)->first();
-        return view('dashboard.dashboard', compact('presensihariini'));
+
+        $histori = DB::table('presensi')
+            ->where('nik', $nik)
+            ->whereRaw('MONTH(tgl_presensi)="' . $bulanini . '"')
+            ->whereRaw('YEAR(tgl_presensi)="' . $tahunini . '"')
+            ->orderBy('tgl_presensi')
+            ->get();
+
+        $rekap = DB::table('presensi')
+            ->selectRaw('COUNT(nik) as jmlhadir, SUM(IF(jam_in > "09:00",1,0)) as jmlterlambat')
+            ->where('nik', $nik)
+            ->whereRaw('MONTH(tgl_presensi)="' . $bulanini . '"')
+            ->whereRaw('YEAR(tgl_presensi)="' . $tahunini . '"')
+            ->first();
+
+        return view('dashboard.dashboard', compact('presensihariini', 'histori', 'bulanini', 'tahunini', 'rekap'));
     }
 }

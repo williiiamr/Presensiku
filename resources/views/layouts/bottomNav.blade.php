@@ -11,7 +11,7 @@
         <div class="col">
             <ion-icon name="calendar-outline" role="img" class="md hydrated"
                 aria-label="calendar outline"></ion-icon>
-            <strong>Calendar</strong>
+            <strong>Histori</strong>
         </div>
     </a>
     <a href="/presensi/create" class="item">
@@ -25,7 +25,7 @@
         <div class="col">
             <ion-icon name="document-text-outline" role="img" class="md hydrated"
                 aria-label="document text outline"></ion-icon>
-            <strong>Docs</strong>
+            <strong>Ijin</strong>
         </div>
     </a>
     <a href="javascript:;" class="item">
