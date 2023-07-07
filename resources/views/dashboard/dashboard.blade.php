@@ -132,7 +132,7 @@
                 </div>
             </div>
         </div>
-        <div class="presencetab mt-2">
+        {{-- <div class="presencetab mt-2">
             <div class="tab-content mt-2" style="margin-bottom:100px;">
                 <div class="tab-pane fade show active" id="home" role="tabpanel">
                     <ul class="listview image-listview">
@@ -154,7 +154,7 @@
                     </ul>    
                 </div>
             </div>
-        </div>  
+        </div>   --}}
     </div>
 </div>
 @endsection('content')

@@ -7,11 +7,11 @@
             <strong>Home</strong>
         </div>
     </a>
-    <a href="#" class="item">
+    <a href="/history" class="item {{ request()->is('history') ? 'active' : '' }}">
         <div class="col">
             <ion-icon name="calendar-outline" role="img" class="md hydrated"
                 aria-label="calendar outline"></ion-icon>
-            <strong>Histori</strong>
+            <strong>History</strong>
         </div>
     </a>
     <a href="/presensi/create" class="item">
@@ -28,7 +28,7 @@
             <strong>Ijin</strong>
         </div>
     </a>
-    <a href="javascript:;" class="item">
+    <a href="/editprofile" class="item {{ request()->is('editprofile') ? 'active' : '' }}">
         <div class="col">
             <ion-icon name="people-outline" role="img" class="md hydrated" aria-label="people outline"></ion-icon>
             <strong>Profile</strong>
