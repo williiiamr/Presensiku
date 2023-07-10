@@ -18,5 +18,12 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        \App\Models\Karyawan::create([
+            'nik'=>'120140100',
+            'nama'=>'Ben Dover',
+            'Jabatan'=>'Intern',
+            'no_hp'=>'08127483954',
+            'password'=>'$2y$10$JG5pz/Fw7YN1G8g6V.K7i.arAUhapRlX9VlUNZBUqLIq7ZsAlTS0K',
+        ]);
     }
 }
