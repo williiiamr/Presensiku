@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\PresensiController;
 use Illuminate\Support\Facades\Route;
+use Psy\Command\HistoryCommand;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,5 +37,7 @@ Route::middleware(['auth:karyawan'])->group(function (){
     Route::post('/presensi/{nik}/updateprofile', [PresensiController::class, 'updateprofile']);
 
     Route::get('/history', [HistoryController::class, 'history']);
+
+    Route::post('/gethistori', [HistoryController::class, 'gethistori']);
 });
 
