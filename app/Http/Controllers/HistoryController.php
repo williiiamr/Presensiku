@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Auth;
 class HistoryController extends Controller
 {
     public function history(){
+
+        $namabulan = ['', "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "October", "November", "December"];
+
         $bulanini = date('m') * 1;
         $tahunini = date('Y');
         $nik = Auth::guard('karyawan')->user()->nik;
@@ -20,6 +23,6 @@ class HistoryController extends Controller
             ->whereRaw('YEAR(tgl_presensi)="' . $tahunini . '"')
             ->orderBy('tgl_presensi')
             ->get();
-        return view('presensi.history', compact('histori'));
+        return view('presensi.history', compact('histori', 'namabulan'));
     }
 }

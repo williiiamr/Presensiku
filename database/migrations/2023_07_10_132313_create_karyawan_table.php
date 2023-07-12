@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('jabatan');
             $table->string('no_hp');
+            $table->string('foto')->nullable();
             $table->text('password');
             $table->string('token')->nullable();
         });

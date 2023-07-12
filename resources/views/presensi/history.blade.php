@@ -12,8 +12,43 @@
 @endsection
 
 @section('content')
-<div class="presencetab mt-10">
-    <div class="tab-content mt-2" style="margin-bottom:100px; padding-top: 40px">
+<div class='row' style='margin-top:70px'>
+    <div class='col'>
+        <div class='row'>
+            <div class="col-12">
+                <div class='form-group'>
+                    <select name='bulan' id='bulan' class="form-control">
+                        <option value=''>Bulan</option>
+                        @for ($i=1; $i<=12; $i++)
+                            <option value="{{ $i }}" {{ date('m')==$i ? 'selected' : '' }}>{{ $namabulan[$i] }}</option>
+                        @endfor
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class='row'>
+            <div class="col-12">
+                <div class='form-group'>
+                    <select name='tahun' id='tahun' class="form-control">
+                        <option value=''>Tahun</option>
+                        @for ($tahun = 2022; $tahun<=date('Y'); $tahun++)
+                            <option value='{{ $tahun }}' {{ date('Y')==$tahun ? 'selected' : '' }}>{{ $tahun }}</option>
+                        @endfor
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class='row'>
+            <div class="col-12">
+                <div class='form-group'>
+                    <button class='btn btn-primary btn-block' id='getdata'>Cari Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="presencetab">
+    <div class="tab-content" style="margin-bottom:100px;">
         <div class="tab-pane fade show active" id="home" role="tabpanel">
             <ul class="listview image-listview">
                 @foreach ($histori as $d)
@@ -36,3 +71,19 @@
     </div>
 </div>  
 @endsection
+
+@push('myscript')
+    <script>
+        $(function(){
+            $('#getdata').click(function(e){
+                var bulan = $('#bulan').val();
+                var tahun = $('#tahun').val();
+                $.ajax({
+                    type: 'POST',
+                    url: '/gethistori',
+                    
+                });
+            });
+        });
+    </script>
+@endpush
