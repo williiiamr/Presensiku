@@ -27,7 +27,7 @@ Route::middleware(['guest:karyawan'])->group(function (){
 });
 
 Route::middleware(['auth:karyawan'])->group(function (){
-    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/proseslogout', [AuthController::class, 'prosesLogout']);
 
     Route::get('/presensi/create', [PresensiController::class, 'create']);
@@ -39,5 +39,7 @@ Route::middleware(['auth:karyawan'])->group(function (){
     Route::get('/history', [HistoryController::class, 'history']);
 
     Route::post('/gethistori', [HistoryController::class, 'gethistori']);
+    Route::get('/dashboardadmin', [DashboardController::class, 'admindashboard']);
+    
 });
 
