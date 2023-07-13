@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\PresensiController;
 use Illuminate\Support\Facades\Route;
 use Psy\Command\HistoryCommand;
@@ -20,11 +21,18 @@ use Psy\Command\HistoryCommand;
 
 Route::middleware(['guest:karyawan'])->group(function (){
     Route::get('/', function () {
-        return view('auth/login');
+        return view('auth.login');
     })->name('login');
-    
     Route::post('/proseslogin', [AuthController::class, 'prosesLogin']);
 });
+
+Route::middleware(['guest:user'])->group(function (){
+    Route::get('/panel', function () {
+        return view('auth.loginadmin');
+    })->name('loginadmin');
+    Route::post('/prosesloginadmin', [AuthController::class, 'prosesloginadmin']);
+});
+
 
 Route::middleware(['auth:karyawan'])->group(function (){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -39,7 +47,12 @@ Route::middleware(['auth:karyawan'])->group(function (){
     Route::get('/history', [HistoryController::class, 'history']);
 
     Route::post('/gethistori', [HistoryController::class, 'gethistori']);
-    Route::get('/dashboardadmin', [DashboardController::class, 'admindashboard']);
     
 });
 
+Route::middleware(['auth:user'])->group(function (){
+    Route::get('/proseslogoutadmin', [AuthController::class, 'proseslogoutadmin']);
+    Route::get('/panel/dashboardadmin', [DashboardController::class, 'admindashboard']);
+
+    Route::get('/karyawan', [KaryawanController::class, 'index']);
+});

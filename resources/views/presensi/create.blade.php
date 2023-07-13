@@ -80,7 +80,7 @@ crossorigin=""/>
 
         var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
 
-        var circle = L.circle([-6.397327086594367, 106.83687347311667], {
+        var circle = L.circle([-6.224833003263079, 106.6498009576709], {
             color: 'red',
             fillColor: '#f03',
             fillOpacity: 0.5,
