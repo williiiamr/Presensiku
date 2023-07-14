@@ -55,4 +55,5 @@ Route::middleware(['auth:user'])->group(function (){
     Route::get('/panel/dashboardadmin', [DashboardController::class, 'admindashboard']);
 
     Route::get('/karyawan', [KaryawanController::class, 'index']);
+    Route::post('/karyawan/store', [KaryawanController::class, 'store']);
 });
