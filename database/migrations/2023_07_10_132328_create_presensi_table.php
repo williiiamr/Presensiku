@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('presensi', function (Blueprint $table) {
             $table->increments('id');
             $table->bigInteger('nik');
+            // Trial if error please delete
+            $table->foreign('nik')->references('nik')->on('karyawan')->cascadeOnDelete();
             $table->date('tgl_presensi');
             $table->time('jam_in')->nullable();
             $table->time('jam_out')->nullable();
