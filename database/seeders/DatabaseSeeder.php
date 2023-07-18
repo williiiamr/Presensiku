@@ -25,5 +25,11 @@ class DatabaseSeeder extends Seeder
             'no_hp'=>'08127483954',
             'password'=>'$2y$10$JG5pz/Fw7YN1G8g6V.K7i.arAUhapRlX9VlUNZBUqLIq7ZsAlTS0K',
         ]);
+
+        \App\Models\User::create([
+            'name'=>'William',
+            'email'=>'william@gmail.com',
+            'password'=>'$2y$10$JG5pz/Fw7YN1G8g6V.K7i.arAUhapRlX9VlUNZBUqLIq7ZsAlTS0K',
+        ]);
     }
 }

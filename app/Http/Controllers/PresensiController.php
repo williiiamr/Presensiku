@@ -142,4 +142,19 @@ class PresensiController extends Controller
             return Redirect::back()->with(['error'=>'Data gagal diupdate']);
         }
     }
+
+    public function monitoring(){
+        return view('presensi.monitoring');
+    }
+
+    public function getpresensi(Request $request){
+        $tanggal = $request->tanggal;
+        $presensi = DB::table('presensi')
+        ->select('presensi.*', 'nama', 'jabatan', 'no_hp')
+        ->join('karyawan', 'presensi.nik', '=', 'karyawan.nik')
+        ->where('tgl_presensi', $tanggal)
+        ->get();
+
+        return view('presensi.getpresensi', compact('presensi'));
+    }
 }

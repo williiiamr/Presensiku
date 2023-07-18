@@ -44,6 +44,7 @@
     <link href="{{ asset('dist/css/tabler-payments.min.css?1685973381') }}" rel="stylesheet"/>
     <link href="{{ asset('dist/css/tabler-vendors.min.css?1685973381') }}" rel="stylesheet"/>
     <link href="{{ asset('dist/css/demo.min.css?1685973381') }}" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
     <style>
       @import url('https://rsms.me/inter/inter.css');
       :root {
@@ -73,6 +74,8 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="{{ asset('dist/js/tabler.min.js?1685973381') }}" defer></script>
     <script src="{{ asset('dist/js/demo.min.js?1685973381') }}" defer></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
     @stack('myscript')
   </body>
 </html>
