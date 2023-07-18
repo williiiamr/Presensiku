@@ -1,167 +1,141 @@
 @extends('layouts.presensi')
 @section('content')
-<div id="appCapsule">
-    <div class="section" id="user-section">
-        <div id="user-detail">
-            <div class="avatar">
-                @if(!empty(Auth::guard('karyawan')->user()->foto))
-                @php
-                $path = Storage::url('public/uploads/karyawan/'.Auth::guard('karyawan')->user()->foto);
-                @endphp
-                    <img src="{{ url($path) }}" alt="avatar" class="imaged w64 rounded">
-                @else
-                    <img src="assets/img/sample/avatar/avatar1.jpg" alt="avatar" class="imaged w64 rounded">
-                @endif
-            </div>
-            <div id="user-info">
-                <h2 id="user-name">{{ Auth::guard('karyawan')->user()->nama }}</h2>
-                <span id="user-role">{{ Auth::guard('karyawan')->user()->jabatan }}</span>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+<script src = "./assets/js/main.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src = "./assets/js/sweetalert.js" defer></script>
+
+
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="assets/img/sample/photo/digitalforte.png" width="auto" height="40px" alt="">
+    </a>
+    <a>
+        <div class="avatar1">
+            <div class="nama">
+            <img src="assets/img/sample/avatar/avatar1.jpg" alt="avatar" class="imaged w32 rounded">
+                <div class="dropdown">
+                    <button>
+                        {{ Auth::guard('karyawan')->user()->nama }}
+                    </button>
+                    <div class="arrow-down">
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="/editprofile">Edit Profile</a>  
+                        <a href="/proseslogout" onclick="showSuccess()">Log out</a>
+                    </div>
+                </div>
             </div>
         </div>
+    </a>
+    
+</nav>
+<div class="center-element mt-5">
+    <div class="header-ucapan ml-5">
+        Hello, {{ Auth::guard('karyawan')->user()->nama }} !
+    </div>
+    <div class="header-deskripsi mt-4 ml-5">
+        Temukan Semangat
+    </div>
+    <div class="header-deskripsi1 ml-5">
+        Dalam Setiap Langkahs Karirmu!
+    </div>
+    <div class="datetime center">
+        <div class="time"></div>
+        <div class="date"></div>
     </div>
 
-    <div class="section" id="menu-section">
-        <div class="card">
-            <div class="card-body text-center">
-                <div class="list-menu">
-                    <div class="item-menu text-center">
-                        <div class="menu-icon">
-                            <a href="" class="green" style="font-size: 40px;">
-                                <ion-icon name="person-sharp"></ion-icon>
-                            </a>
-                        </div>
-                        <div class="menu-name">
-                            <span class="text-center">Profil</span>
-                        </div>
-                    </div>
-                    <div class="item-menu text-center">
-                        <div class="menu-icon">
-                            <a href="" class="danger" style="font-size: 40px;">
-                                <ion-icon name="calendar-number"></ion-icon>
-                            </a>
-                        </div>
-                        <div class="menu-name">
-                            <span class="text-center">Cuti</span>
-                        </div>
-                    </div>
-                    <div class="item-menu text-center">
-                        <div class="menu-icon">
-                            <a href="" class="warning" style="font-size: 40px;">
-                                <ion-icon name="document-text"></ion-icon>
-                            </a>
-                        </div>
-                        <div class="menu-name">
-                            <span class="text-center">Histori</span>
-                        </div>
-                    </div>
-                    <div class="item-menu text-center">
-                        <div class="menu-icon">
-                            <a href="" class="orange" style="font-size: 40px;">
-                                <ion-icon name="location"></ion-icon>
-                            </a>
-                        </div>
-                        <div class="menu-name">
-                            Lokasi
-                        </div>
-                    </div>
-                </div>
+</div>
+
+<div class="rectangle-dashboard mt-5">
+    <div class="center-element">
+    <div class="card-rectangle1 mt-5 bg-success">
+        <div class="teks-presensi">
+                Masuk :
+            <div class="info-presensi">
+             <span>{{ $presensihariini != null ? $presensihariini->jam_in : 'Anda Belum Absen' }}</span>
             </div>
         </div>
     </div>
-    <div class="section mt-2" id="presence-section">
-        <div class="todaypresence">
-            <div class="row">
-                <div class="col-6">
-                    <div class="card gradasigreen">
-                        <div class="card-body">
-                            <div class="presencecontent">
-                                <div class="iconpresence">
-                                    <ion-icon name="camera"></ion-icon>
-                                </div>
-                                <div class="presencedetail">
-                                    <h4 class="presencetitle">Masuk</h4>
-                                    <span>{{ $presensihariini != null ? $presensihariini->jam_in : 'Belum Absen' }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="card gradasired">
-                        <div class="card-body">
-                            <div class="presencecontent">
-                                <div class="iconpresence">
-                                    <ion-icon name="camera"></ion-icon>
-                                </div>
-                                <div class="presencedetail">
-                                    <h4 class="presencetitle">Pulang</h4>
-                                    <span>{{ $presensihariini != null ? $presensihariini->jam_out : 'Belum Pulang' }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>    
-        </div>   
-        <div id='rekappresensi'>
-            <div class="row">
-                <div class="col-3">
-                    <div class='card'>
-                        <div class='card-body text-center'>
-                            <span class='badge bg-danger'>{{ $rekap->jmlhadir }}</span>
-                            <span style="font-size: 0.8rem; font-weight:500;">Hadir</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class='card'>
-                        <div class='card-body text-center'>
-                            <span class='badge bg-danger'>{{ $rekap->jmlterlambat }}</span>
-                            <span style="font-size: 0.8rem; font-weight:500;">Telat</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class='card'>
-                        <div class='card-body text-center'>
-                            <span class='badge bg-danger'>10</span>
-                            <span style="font-size: 0.8rem; font-weight:500;">Sakit</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class='card'>
-                        <div class='card-body text-center'>
-                            <span class='badge bg-danger'>10</span>
-                            <span style="font-size: 0.8rem; font-weight:500;">Ijin</span>
-                        </div>
-                    </div>
-                </div>
+    <div class="card-rectangle2 mt-5 bg-danger">
+        <div class="teks-presensi">
+                Keluar :
+            <div class="info-presensi">
+             <span>{{ $presensihariini != null ? $presensihariini->jam_in : 'Anda Belum Absen' }}</span>
             </div>
         </div>
-        {{-- <div class="presencetab mt-2">
-            <div class="tab-content mt-2" style="margin-bottom:100px;">
-                <div class="tab-pane fade show active" id="home" role="tabpanel">
-                    <ul class="listview image-listview">
-                        @foreach ($histori as $d)
-                            <li>
-                                <div class="item" style='width:92vw;'>
-                                    <div class="icon-box bg-primary">
-                                        <ion-icon name="image-outline" role="img" class="md hydrated"
-                                            aria-label="image outline"></ion-icon>
-                                    </div>
-                                    <div class="in">
-                                        <div>{{ date('Y-m-d', strtotime($d->tgl_presensi)) }}</div>
-                                        <span class="badge gradasigreen">{{ $d->jam_in }}</span>
-                                        <span class="badge badge-danger">{{ $d->jam_out }}</span>
-                                    </div>
-                                </div>
-                            </li>
-                        @endforeach
-                    </ul>    
-                </div>
-            </div>
-        </div>   --}}
+    </div>
+    
+    </div>
+    <div class="center-element">
+    <div class="rectangle-guide">
+        <div class="isi-guide">
+            Pastikan:
+        </div>
+        <div class="container text-center">
+        <div class="row flex-wrap">
+    <div class="col mt-2">
+        <img src="assets/img/sample/photo/gps-bold.png" alt="image-gps" class="img-fluid">
+        <div class="deskripsi-guide">
+            GPS Menyala dan berfungsi dengan baik
+        </div>
+    </div>
+    <div class="col mt-2">
+        <img src="assets/img/sample/photo/ion_glasses.png" alt="image-gps" class="img-fluid">
+        <div class="deskripsi-guide">
+            Lepas topi, kacamata hitam, ataupun masker
+        </div>
+    </div>
+    <div class="col mt-2">
+        <img src="assets/img/sample/photo/solar-gps.png" alt="image-gps" class="img-fluid">
+        <div class="deskripsi-guide">
+            Gunakan lokasi kerja sebagai latar belakang
+        </div>
     </div>
 </div>
+
+</div>
+    </div>
+    </div>
+    <div class="center-element mt-5">
+        <div class="card-grid">
+            <div class="card" style="border-radius: 20px;">
+                <h2 class="card-title">Hadir</h2>
+                <div class="gambar-presensi">
+                <img src="assets/img/sample/photo/uil_entry.png" width="65px">
+                </div>
+                <p class="card-description">{{ $rekap->jmlhadir }} Hari</p>
+            </div>
+            <div class="card" style="border-radius: 20px;">
+                <h2 class="card-title">Hadir</h2>
+                <div class="gambar-presensi">
+                <img src="assets/img/sample/photo/uil_entry.png" width="65px">
+                </div>
+                <p class="card-description">Hari</p>
+            </div>
+            <div class="card" style="border-radius: 20px;">
+                <h2 class="card-title">Hadir</h2>
+                <div class="gambar-presensi">
+                <img src="assets/img/sample/photo/uil_entry.png" width="65px">
+                </div>
+                <p class="card-description">{{ $rekap->jmlterlambat }} Hari</p>
+            </div>
+            <div class="card" style="border-radius: 20px;">
+                <h2 class="card-title">Hadir</h2>
+                <div class="gambar-presensi">
+                <img src="assets/img/sample/photo/uil_entry.png" width="65px">
+                </div>
+                <p class="card-description">Hari</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 @endsection('content')

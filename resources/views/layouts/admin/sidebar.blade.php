@@ -5,7 +5,7 @@
       </button>
       <h1 class="navbar-brand navbar-brand-autodark">
         <a href=".">
-          <img src="./static/logo.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+          <img src="../../assets/img/sample/photo/digitalforte.png" width="110" height="32" alt="img_digitalforte" class="navbar-brand-image">
         </a>
       </h1>
       <div class="navbar-nav flex-row d-lg-none">
@@ -186,6 +186,7 @@
               </a>
           </li>
         </ul>
+        <a class = "btn btn-danger"href="/proseslogoutadmin" onclick="showSuccess()" style="margin-left: 10px; margin-bottom: 10px;" >Log out</a>
       </div>
     </div>
   </aside>

@@ -1,7 +1,7 @@
 <div class="presencetab">
     <div class="tab-content" style="margin-bottom:100px;">
         <div class="tab-pane fade show active" id="home" role="tabpanel">
-            <ul class="listview image-listview">
+            <ul class="listview image-listview" style="border-radius: 20px; box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; margin: 10px; padding: 5px;">
                 @foreach ($history as $d)
                     <li>
                         <div class="item" style='width:92vw;'>

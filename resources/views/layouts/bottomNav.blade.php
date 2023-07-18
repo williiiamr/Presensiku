@@ -1,37 +1,24 @@
 <!-- App Bottom Menu -->
 <div class="appBottomMenu">
     <a href="/dashboard" class="item {{ request()->is('dashboard') ? 'active' : '' }}">
-        <div class="col">
-            <ion-icon name="file-tray-full-outline" role="img" class="md hydrated"
-                aria-label="file tray full outline"></ion-icon>
-            <strong>Home</strong>
+        <div class="col4">
+        <img src="../../assets/img/sample/photo/home-2.png" alt="images" class="icon-size2">
+            <h5>Home</h5>
         </div>
     </a>
-    <a href="/history" class="item {{ request()->is('history') ? 'active' : '' }}">
-        <div class="col">
-            <ion-icon name="calendar-outline" role="img" class="md hydrated"
-                aria-label="calendar outline"></ion-icon>
-            <strong>History</strong>
-        </div>
-    </a>
+
     <a href="/presensi/create" class="item">
         <div class="col">
-            <div class="action-button large">
-                <ion-icon name="camera" role="img" class="md hydrated" aria-label="add outline"></ion-icon>
-            </div>
+            <div class="action-button large mb-5">
+            <img src="../../assets/img/sample/photo/camera-bold.png" alt="images" class="icon-size2">
+             </div>
         </div>
     </a>
-    <a href="#" class="item">
-        <div class="col">
-            <ion-icon name="document-text-outline" role="img" class="md hydrated"
-                aria-label="document text outline"></ion-icon>
-            <strong>Ijin</strong>
-        </div>
-    </a>
-    <a href="/editprofile" class="item {{ request()->is('editprofile') ? 'active' : '' }}">
-        <div class="col">
-            <ion-icon name="people-outline" role="img" class="md hydrated" aria-label="people outline"></ion-icon>
-            <strong>Profile</strong>
+
+    <a href="/history" class="item {{ request()->is('history') ? 'active' : '' }}">
+        <div class="col4">
+        <img src="../../assets/img/sample/photo/octicon.png" alt="imasges" class="icon-size2" style="margin-top: -2px;">
+            <h5>History</h5>
         </div>
     </a>
 </div>

@@ -1,6 +1,6 @@
 @extends('layouts/presensi')
 @section('header')
-<div class='appHeader bg-primary text-light'>
+<div class='appHeader text-light'  style="background-color: #203585;">
     <div class='left'>
         <a href='/dashboard' class='headerButton goBack'>
             <ion-icon name="chevron-back-outline"></ion-icon>
@@ -41,7 +41,7 @@
         <div class='row'>
             <div class="col-12">
                 <div class='form-group'>
-                    <button class='btn btn-primary btn-block' id='getdata'>Cari Data</button>
+                    <button class='btn btn-block text-light'  style="background-color: #203585;" id='getdata'>Cari Data</button>
                 </div>
             </div>
         </div>
