@@ -77,7 +77,7 @@
           <div class="wrap-input100 validate-input" data-validate="Password is required">
             <input class="input100" type="password" name="password" id="password" />
             <span class="focus-input100"></span>
-            <span class="label-input100">Password</span>
+            <span class="label-input100">Passworsd</span>
           </div>
 
           <div class="flex-sb-m w-full p-t-3 p-b-32">

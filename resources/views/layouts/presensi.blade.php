@@ -20,8 +20,22 @@
     <link rel="manifest" href="__manifest.json">
 </head>
 
-<body style="background-color:#e9ecef;">
+<style>
+    body{
+        background-image: url('assets/img/sample/photo/tokyo.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    @media (max-width: 767px) {
+        body {
+            height: 300px; /* Set the height you want to crop the image to */
+            overflow: hidden;
+        }
+    }
+</style>
 
+<body >
     <!-- loader -->
     <div id="loader">
         <div class="spinner-border text-primary" role="status"></div>

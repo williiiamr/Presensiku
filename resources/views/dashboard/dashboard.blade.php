@@ -9,9 +9,8 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src = "./assets/js/sweetalert.js" defer></script>
 
-
 <!-- Image and text -->
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light" style="background-color: white;">
     <a class="navbar-brand" href="#">
         <img src="assets/img/sample/photo/digitalforte.png" width="auto" height="40px" alt="">
     </a>
@@ -35,15 +34,16 @@
     </a>
     
 </nav>
+
 <div class="center-element mt-5">
-    <div class="header-ucapan ml-5">
+    <div class="header-ucapan">
         Hello, {{ Auth::guard('karyawan')->user()->nama }} !
     </div>
-    <div class="header-deskripsi mt-4 ml-5">
+    <div class="header-deskripsi mt-4">
         Temukan Semangat
     </div>
-    <div class="header-deskripsi1 ml-5">
-        Dalam Setiap Langkahs Karirmu!
+    <div class="header-deskripsi1">
+        Dalam Setiap Langkah Karirmu!ss
     </div>
     <div class="datetime center">
         <div class="time"></div>
