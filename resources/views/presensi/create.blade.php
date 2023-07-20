@@ -1,7 +1,7 @@
 @extends('layouts.presensi')
 @section('header')
  <!-- App Header -->
- <div class="appHeader bg-primary text-light">
+ <div class="appHeader text-light" style="background-color: #203585;">
     <div class="left">
         <a href="javascript:;" class="headerButton goBack">
             <ion-icon name="chevron-back-outline"></ion-icon>
@@ -33,8 +33,7 @@ crossorigin=""/>
 @section('content')
 <div class='row' style='margin-top: 70px'>
     <div class="col">
-        {{-- bisa di hidden pada bagian type untuk ilangin coordinate --}}
-        <input type='text' id='lokasi'> 
+        <input type='hide' id='lokasi' style="display: none;"> 
         <div class='webcam-capture'></div> 
     </div>
 </div>

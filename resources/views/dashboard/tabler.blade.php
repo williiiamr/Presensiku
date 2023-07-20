@@ -7,6 +7,8 @@
 * Copyright 2018-2023 codecalm.net Paweł Kuna
 * Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
 -->
+
+
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
@@ -45,6 +47,12 @@
     <link href="{{ asset('dist/css/tabler-vendors.min.css?1685973381') }}" rel="stylesheet"/>
     <link href="{{ asset('dist/css/demo.min.css?1685973381') }}" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
+
+    
+    <script src = "../../assets/js/main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src = "../../assets/js/sweetalert.js" defer></script>
+
     <style>
       @import url('https://rsms.me/inter/inter.css');
       :root {
@@ -53,6 +61,41 @@
       body {
       	font-feature-settings: "cv03", "cv04", "cv11";
       }
+      .colored-toast.swal2-icon-success {
+        background-color: #a5dc86 !important;
+      }
+      .colored-toast.swal2-icon-success {
+    background-color: #a5dc86 !important;
+}
+
+.colored-toast.swal2-icon-error {
+    background-color: #f27474 !important;
+}
+
+.colored-toast.swal2-icon-warning {
+    background-color: #f8bb86 !important;
+}
+
+.colored-toast.swal2-icon-info {
+    background-color: #3fc3ee !important;
+}
+
+.colored-toast.swal2-icon-question {
+    background-color: #87adbd !important;
+}
+
+.colored-toast .swal2-title {
+    color: white;
+}
+
+.colored-toast .swal2-close {
+    color: white;
+}
+
+.colored-toast .swal2-html-container {
+    color: white;
+}
+
     </style>
   </head>
   <body >
