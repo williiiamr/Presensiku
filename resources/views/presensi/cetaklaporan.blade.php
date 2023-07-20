@@ -17,26 +17,11 @@
     @page { 
       size: A4 
     }
+
     #judul {
       font-family: Helvetica, sans-serif;
       font-weight: bold;
       font-size: 20px;
-    }
-    .tablepresensi{
-      width: 100%;
-      margin-top: 20px;
-      border-collapse: collapse;
-    }
-
-    .tablepresensi tr th {
-      border: 1px solid black;
-      background-color: lightgrey; 
-    }
-
-    .tablepresensi tr td {
-      border: 1px solid black;
-      font-size: 10px;
-      padding: 5px;
     }
   </style>
 </head>
@@ -62,40 +47,6 @@
           <span style="line-height: 5px;">Jl. Kamboja 1, Mekar Jaya, Kec. Sukmajaya, Kota Depok, Jawa Barat 16411</span>
         </td>
       </tr>
-    </table>
-    <table class="tablepresensi">
-      <tr>
-        <th rowspan="2">Nik</th>
-        <th rowspan="2">Nama Karyawan</th>
-        <th colspan="31">tgl</th>
-      </tr>
-      <tr>
-        @for ($i = 1; $i <= 31; $i++)
-            <th>{{ $i }}</th>
-        @endfor
-      </tr>
-     @foreach ($presensi as $d)
-         <tr>
-            <td>
-              {{ $d->nik }}
-            </td>
-
-            <td>
-              {{ $d->nama }}
-            </td>
-
-            <?php
-              for ($i=1; $i <= 31; $i++) { 
-                $tgl = 'tgl_' . $i;
-            ?>
-              <td style='background-color: <?php if ($d->$tgl != null){ ?> green; <?php } ?>'></td>
-              
-            <?php
-              }
-            ?>
-
-         </tr>
-     @endforeach
     </table>
 
   </section>

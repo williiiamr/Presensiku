@@ -29,7 +29,7 @@
                             </div>
                             <div class="col">
                                 <div class="font-weight-medium">
-                                {{ $karyawan->jmlkaryawan }}
+                                132 Sales
                                 </div>
                                 <div class="text-muted">
                                 Jumlah Karyawan

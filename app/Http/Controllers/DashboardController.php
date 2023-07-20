@@ -33,10 +33,6 @@ class DashboardController extends Controller
             ->where('tgl_presensi', $hariini)
             ->first();
 
-        $karyawan = DB::table('karyawan')
-            ->selectRaw('COUNT(nik) as jmlkaryawan')
-            ->first();
-
-        return view('dashboard.dashboardAdmin', compact('rekap', 'karyawan'));
+        return view('dashboard.dashboardAdmin', compact('rekap'));
     }
 }
