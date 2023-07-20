@@ -66,7 +66,7 @@
         <div class="teks-presensi">
                 Keluar :
             <div class="info-presensi">
-             <span>{{ $presensihariini != null ? $presensihariini->jam_in : 'Anda Belum Absen' }}</span>
+             <span>{{ $presensihariini != null ? $presensihariini->jam_out : 'Anda Belum Absen' }}</span>
             </div>
         </div>
     </div>
