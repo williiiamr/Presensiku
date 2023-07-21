@@ -12,16 +12,37 @@
 </div>
 <!-- * App Header -->
 <style>
-    .webcam-capture,
-    .webcam-capture video{
-        diplay: inline-block;
-        width: 100% !important;
-        margin: auto;
-        height: auto !important;
-        border-radius: 15px;
-    }
+.webcam-capture,
+.webcam-capture video {
+    width: 55% !important;
+    height: auto !important;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
 
-    #map { height: 250px; }
+/* Tambahkan kode berikut untuk menengahkan video */
+.webcam-capture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%; /* Tambahkan lebar maksimum */
+    margin: 0 auto; /* Tambahkan margin auto untuk mengatur elemen di tengah */
+}
+
+
+
+    #map { height: 290px; }
+    @media (max-width: 767px) {
+        .webcam-capture,
+        .webcam-capture video {
+            width: 100% !important; /* Ubah lebar video menjadi 100% pada layar kecil */
+        }
+
+        #map {
+            height: 380px;
+            border-radius: 15px; /* Sesuaikan tinggi peta untuk tampilan pada layar kecil */
+        }
+    }
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
