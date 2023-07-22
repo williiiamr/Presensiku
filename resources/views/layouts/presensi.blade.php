@@ -21,7 +21,7 @@
 </head>
 
 <style>
-    body{
+    .bg-image{
         background-image: url('assets/img/sample/photo/tokyo.jpg');
         background-size: cover;
         background-repeat: no-repeat;
@@ -35,7 +35,7 @@
     }
 </style>
 
-<body >
+<body class="bg-image">
     <!-- loader -->
     <div id="loader">
         <div class="spinner-border text-primary" role="status"></div>

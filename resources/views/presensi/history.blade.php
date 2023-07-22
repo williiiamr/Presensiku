@@ -11,7 +11,6 @@
 </div>
 @endsection
 
-@section('content')
 <div class='row' style='margin-top:70px'>
     <div class='col'>
         <div class='row'>
@@ -53,7 +52,6 @@
     </div>
 </div>
 
-@endsection
 
 @push('myscript')
     <script>
