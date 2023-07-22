@@ -6,7 +6,9 @@
     <title>History</title>
     <link rel="stylesheet" type="text/css" href={{ asset("assets/css/editprofile.css") }}>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src = "./assets/js/sweetalert.js" defer></script>
 </head>
 <body>
     <div class='appHeader text-light' style="background-color: #203585;">
@@ -17,6 +19,34 @@
         </div>
         <div class='pageTitle'>Edit Profile</div>
         <div class='right'></div>
+    </div>
+    <div class="container">
+        @php
+            $messagesuccess = Session::get('success');
+            $messageerror = Session::get('error');
+        @endphp
+
+        @if (Session::has('success'))
+            <script>
+                // SweetAlert for success message
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: '{{ $messagesuccess }}',
+                });
+            </script>
+        @endif
+
+        @if (Session::has('error'))
+            <script>
+                // SweetAlert for error message
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error!',
+                    text: '{{ $messageerror }}',
+                });
+            </script>
+        @endif
     </div>
     <div class="main-content">
         <div
@@ -29,8 +59,8 @@
           <div class="container-fluid d-flex align-items-center">
             <div class="row">
               <div class="col-lg-7 col-md-10">
-                <h1 class="display-2 text-white">Hellos Jesse</h1>
-                <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
+                <h1 class="display-2 text-white">Hello, {{ Auth::guard('karyawan')->user()->nama }}</h1>
+                <p class="text-white mt-0 mb-5">This is your sprossfile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
               </div>
             </div>
           </div>
@@ -39,7 +69,7 @@
         <div class="container-fluid mt--7">
           <div class="row">
             <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
-              <div class="card card-profile shadow" style="margin-top: -110px; margin-bottom: 100px;">
+              <div class="card card-profile shadow" style="margin-top: -210px; margin-bottom: 100px;">
                 <div class="row justify-content-center">
                   <div class="col-lg-3 order-lg-2">
                     <div class="card-profile-image">
@@ -58,7 +88,7 @@
                   <br>
                   <br>
                   <div class="text-center">
-                    <h3>Jessica Jones</h3>
+                    <h3>{{ Auth::guard('karyawan')->user()->nama }}</h3>
                     <div class="h5 mt-4"><i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer</div>
                     <div><i class="ni education_hat mr-2"></i>PT Digital Forte Indonesia</div>
                   </div>
@@ -66,33 +96,56 @@
               </div>
             </div>
             <div class="col-xl-8 order-xl-1">
-              <div class="card bg-secondary shadow" style="margin-top: -110px;">
+              <div class="card bg-secondary shadow" style="margin-top: -210px;">
                 <div class="card-header bg-white border-0">
                   <div class="row align-items-center">
                     <div class="col-8">
-                      <h3 class="mb-0">My account</h3>
+                      <h3 class="mb-0">Edit your profile</h3>
                     </div>
                   </div>
                 </div>
                 <div class="card-body">
-                  <form>
+                  <form action="/presensi/{{ $datauser->nik }}/updateprofile" method="POST" enctype="multipart/form-data">
+                  @csrf
                     <h6 class="heading-small text-muted mb-4">User information</h6>
                     <div class="pl-lg-4">
                       <div class="row">
                         <div class="col-lg-6">
                           <div class="form-group focused">
-                            <label class="form-control-label" for="input-username">Username</label>
-                            <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="lucky.jesse" />
+                            <label class="form-control-label" for="input-username">Nama Lengkap</label>
+                            <input type="text" id="input-username" class="form-control form-control-alternative" value="{{ $datauser->nama }}" placeholder="Nama Lengkap" />
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group focused">
+                            <label class="form-control-label" for="input-nik">NIK</label>
+                            <input type="text" id="input-nik" class="form-control form-control-alternative" value="{{ $datauser->no_hp }}" placeholder="NIK" />
                           </div>
                         </div>
                         <div class="col-lg-6">
                           <div class="form-group">
-                            <label class="form-control-label" for="input-email">Email address</label>
-                            <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="jesse@example.com" />
+                            <label class="form-control-label" for="input-email">Password</label>
+                            <input type="password" id="input-password" class="form-control form-control-alternative" placeholder="Password" />
                           </div>
-                          <a href="#!" class="btn btn-info">Edit profile</a>
+                          <div class="form-group">
+                            <label class="form-control-label">Photo Profiles</label>
+                          </div>
+                          <div class="custom-file-upload" id="fileUpload1">
+      <input type="file" name="foto" id="fileuploadInput" accept=".png, .jpg, .jpeg" />
+      <label for="fileuploadInput">
+        <span>
+          <strong>
+            <ion-icon name="cloud-upload-outline" role="img" class="md hydrated" aria-label="cloud upload outline"></ion-icon>
+            <i>Tap to Upload</i>
+          </strong>
+        </span>
+      </label>
+    </div>
+                          
                         </div>
+                        
                       </div>
+                      <a href="#!" class="btn btn-info">Save Changes</a>
                   </form>
                 </div>
               </div>
@@ -100,5 +153,7 @@
           </div>
         </div>
       </div>
+      <div class="alert alert-primary" role="alert">
+</div>
 </body>
 </html>

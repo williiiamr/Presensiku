@@ -111,6 +111,7 @@ button {
     font-size: 2.75rem;
     font-weight: 600;
     line-height: 1.5;
+    margin-top: -150px;
 }
 
 code {
@@ -121,6 +122,49 @@ code {
 
 a > code {
     color: inherit;
+}
+/* Styling for the custom file upload container */
+.custom-file-upload {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #f2f2f2;
+    padding: 10px 20px;
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+/* Hide the default file input */
+.custom-file-upload input[type="file"] {
+    display: none;
+}
+
+/* Styling for the label */
+.custom-file-upload label {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+}
+
+/* Styling for the icon */
+.custom-file-upload span {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+/* Styling for the "Tap to Upload" text */
+.custom-file-upload i {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Add some hover effect to the container */
+.custom-file-upload:hover {
+    background-color: #eaeaea;
 }
 
 .container {
