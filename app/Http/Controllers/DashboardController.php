@@ -32,7 +32,11 @@ class DashboardController extends Controller
             ->selectRaw('COUNT(nik) as jmlhadir, SUM(IF(jam_in > "09:00",1,0)) as jmlterlambat')
             ->where('tgl_presensi', $hariini)
             ->first();
+            
+        $karyawan = DB::table('karyawan')
+            ->selectRaw('COUNT(nik) as jmlkaryawan')
+            ->first();
 
-        return view('dashboard.dashboardAdmin', compact('rekap'));
+        return view('dashboard.dashboardAdmin', compact('rekap', 'karyawan'));
     }
 }
