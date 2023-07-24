@@ -60,7 +60,7 @@
             <div class="row">
               <div class="col-lg-7 col-md-10">
                 <h1 class="display-2 text-white">Hello, {{ Auth::guard('karyawan')->user()->nama }}</h1>
-                <p class="text-white mt-0 mb-5">This is your sprossfile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
+                <p class="text-white mt-0 mb-5" style="font-size: 14px">This is ysour sprossfssile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
               </div>
             </div>
           </div>
@@ -69,7 +69,7 @@
         <div class="container-fluid mt--7">
           <div class="row">
             <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
-              <div class="card card-profile shadow" style="margin-top: -210px; margin-bottom: 100px;">
+              <div class="card card-profile shadow" style="margin-top: -240px; margin-bottom: 100px;">
                 <div class="row justify-content-center">
                   <div class="col-lg-3 order-lg-2">
                     <div class="card-profile-image">
@@ -90,13 +90,13 @@
                   <div class="text-center">
                     <h3>{{ Auth::guard('karyawan')->user()->nama }}</h3>
                     <div class="h5 mt-4"><i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer</div>
-                    <div><i class="ni education_hat mr-2"></i>PT Digital Forte Indonesia</div>
+                    <div><i class="ni education_hat mr-2"></i>PT Disgital Forte Indonesia</div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-xl-8 order-xl-1">
-              <div class="card bg-secondary shadow" style="margin-top: -210px;">
+              <div class="card bg-secondary shadow" style="margin-top: -240px;">
                 <div class="card-header bg-white border-0">
                   <div class="row align-items-center">
                     <div class="col-8">
@@ -113,39 +113,39 @@
                         <div class="col-lg-6">
                           <div class="form-group focused">
                             <label class="form-control-label" for="input-username">Nama Lengkap</label>
-                            <input type="text" id="input-username" class="form-control form-control-alternative" value="{{ $datauser->nama }}" placeholder="Nama Lengkap" />
+                            <input type="text" id="input-username" class="form-control form-control-alternative" value="{{ $datauser->nama }}" placeholder="Nama Lengkap" name="nama_lengkap"/>
                           </div>
                         </div>
                         <div class="col-lg-6">
                           <div class="form-group focused">
                             <label class="form-control-label" for="input-nik">NIK</label>
-                            <input type="text" id="input-nik" class="form-control form-control-alternative" value="{{ $datauser->no_hp }}" placeholder="NIK" />
+                            <input type="text" id="input-nik" class="form-control form-control-alternative" value="{{ $datauser->no_hp }}" placeholder="No. HP" name="no_hp" />
                           </div>
                         </div>
                         <div class="col-lg-6">
-                          <div class="form-group">
-                            <label class="form-control-label" for="input-email">Password</label>
-                            <input type="password" id="input-password" class="form-control form-control-alternative" placeholder="Password" />
+                            <div class="form-group">
+                              <label class="form-control-label" for="input-email">Password</label>
+                              <input type="password" id="input-password" class="form-control form-control-alternative" placeholder="Password" />
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label">Photo Profiles</label>
+                            </div>
+                            <div class="custom-file-upload" id="fileUpload1">
+                            <input type="file" name="foto" id="fileuploadInput" accept=".png, .jpg, .jpeg" />
+                            <label for="fileuploadInput">
+                              <span>
+                                <strong>
+                                  <ion-icon name="cloud-upload-outline" role="img" class="md hydrated" aria-label="cloud upload outline"></ion-icon>
+                                  <i>Tap to Upload</i>
+                                </strong>
+                              </span>
+                            </label>
                           </div>
-                          <div class="form-group">
-                            <label class="form-control-label">Photo Profiles</label>
-                          </div>
-                          <div class="custom-file-upload" id="fileUpload1">
-      <input type="file" name="foto" id="fileuploadInput" accept=".png, .jpg, .jpeg" />
-      <label for="fileuploadInput">
-        <span>
-          <strong>
-            <ion-icon name="cloud-upload-outline" role="img" class="md hydrated" aria-label="cloud upload outline"></ion-icon>
-            <i>Tap to Upload</i>
-          </strong>
-        </span>
-      </label>
-    </div>
-                          
+
                         </div>
                         
                       </div>
-                      <a href="#!" class="btn btn-info">Save Changes</a>
+                      <button class="btn btn-info">Save Changes</button>
                   </form>
                 </div>
               </div>
