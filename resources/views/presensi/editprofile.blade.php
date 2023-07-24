@@ -74,7 +74,14 @@
                   <div class="col-lg-3 order-lg-2">
                     <div class="card-profile-image">
                       <a href="#">
-                        <img src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-4.jpg" class="rounded-circle" />
+                        @if(!empty(Auth::guard('karyawan')->user()->foto))
+                          @php
+                          $path = Storage::url('public/uploads/karyawan/'.Auth::guard('karyawan')->user()->foto);
+                          @endphp
+                              <img style="border-radius:100px;" src="{{ url($path) }}" alt="avatar" class="imaged w64 rounded">
+                        @else
+                            <img src="assets/img/sample/avatar/avatar1.jpg" alt="avatar" class="imaged w64 rounded">
+                        @endif
                       </a>
                     </div>
                   </div>
@@ -89,8 +96,8 @@
                   <br>
                   <div class="text-center">
                     <h3>{{ Auth::guard('karyawan')->user()->nama }}</h3>
-                    <div class="h5 mt-4"><i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer</div>
-                    <div><i class="ni education_hat mr-2"></i>PT Disgital Forte Indonesia</div>
+                    <div class="h5 mt-4"><i class="ni business_briefcase-24 mr-2"></i>{{ Auth::guard('karyawan')->user()->jabatan }}</div>
+                    <div><i class="ni education_hat mr-2"></i>PT Digital Forte Indonesia</div>
                   </div>
                 </div>
               </div>

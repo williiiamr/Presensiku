@@ -22,11 +22,13 @@
 
 <style>
     .bg-image{
-        background-image: url('assets/img/sample/photo/tokyo.jpg');
+        background-image: url('assets/img/sample/photo/bg.png');
         background-size: cover;
         background-repeat: no-repeat;
-        background-position: center center;
+        background-position: top center;
+        background-position: center top;
     }
+    
     @media (max-width: 767px) {
         body {
             height: 300px; /* Set the height you want to crop the image to */

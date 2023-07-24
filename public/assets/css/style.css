@@ -301,8 +301,10 @@ button {
     background: #ffffff00;
     width: 400px;
     font-weight: 500;
-    align-items: ;
     font-family: "Poppins", sans-serif;
+    position: absolute;
+    right: 80px;
+    margin-top: 5px;
 }
 .center-element {
     display: flex;
@@ -333,6 +335,7 @@ button {
     background-color: white;
     border-radius: 30px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: 100px;
 }
 .rectangle-guide {
     width: 1200px;
@@ -362,8 +365,10 @@ button {
 
 .card-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1.5rem;
+    justify-content: center;
+    display: flex;
 }
 
 .card {
@@ -408,6 +413,7 @@ button {
     position: absolute;
     margin-left: 170px;
     left: 0;
+    margin-top: 30px;
     color: white;
 }
 
@@ -506,16 +512,19 @@ button {
     .header-ucapan {
         font-size: 18px;
         margin-left: 30px;
+        margin-top: 5px;
     }
     .header-deskripsi1 {
         font-size: 13px;
         top: 85px;
+        margin-top: 50px;
         margin-left: 30px;
     }
     .header-deskripsi {
         font-size: 13px;
         top: 90px;
         margin-left: 30px;
+        margin-top: 35px;
     }
     .teks-presensi {
         font-size: 14px;
@@ -530,7 +539,7 @@ button {
         padding-top: -10px;
     }
     .deskripsi-guide {
-        font-size: 11px;
+        font-size: 10px;
         line-height: 12px;
     }
     .img-fluid {
@@ -545,7 +554,7 @@ button {
 @media (max-width: 768px) {
     .rectangle-guide {
         width: 85%;
-        height: 160px;
+        height: 165px;
         margin-top: -50px;
     }
     .rectangle-dashboard {
@@ -559,14 +568,16 @@ button {
     .date {
         font-size: 12px;
         text-align: right;
-        margin-left: 255px;
         margin-top: -8px;
+        position: relative;
+        left: 200px;
     }
     .time {
         font-size: 20px;
         text-align: right;
-        margin-left: 255px;
         margin-top: 5px;
+        position: relative;
+        left: 200px;
     }
 }
 .extraHeader {
