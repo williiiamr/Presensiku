@@ -80,12 +80,6 @@
                                     <input type="email"  name='email' class="form-control" placeholder="your@email.com" autocomplete="off">
                                     </div>
                                     <div class="mb-2">
-                                    <label class="form-label">
-                                        Password
-                                        <span class="form-label-description">
-                                        <a href="./forgot-password.html">I forgot password</a>
-                                        </span>
-                                    </label>
                                     <div class="input-group input-group-flat">
                                         <input type="password" name='password' class="form-control"  placeholder="Your password"  autocomplete="off">
                                         <span class="input-group-text">

@@ -20,8 +20,24 @@
     <link rel="manifest" href="__manifest.json">
 </head>
 
-<body style="background-color:#e9ecef;">
+<style>
+    .bg-image{
+        background-image: url('assets/img/sample/photo/bg.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-position: center top;
+    }
+    
+    @media (max-width: 767px) {
+        body {
+            height: 300px; /* Set the height you want to crop the image to */
+            overflow: hidden;
+        }
+    }
+</style>
 
+<body class="bg-image">
     <!-- loader -->
     <div id="loader">
         <div class="spinner-border text-primary" role="status"></div>

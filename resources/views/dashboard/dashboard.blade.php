@@ -9,16 +9,22 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src = "./assets/js/sweetalert.js" defer></script>
 
-
 <!-- Image and text -->
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light" style="background-color: white;">
     <a class="navbar-brand" href="#">
         <img src="assets/img/sample/photo/digitalforte.png" width="auto" height="40px" alt="">
     </a>
     <a>
         <div class="avatar1">
             <div class="nama">
-            <img src="assets/img/sample/avatar/avatar1.jpg" alt="avatar" class="imaged w32 rounded">
+                @if(!empty(Auth::guard('karyawan')->user()->foto))
+                @php
+                $path = Storage::url('public/uploads/karyawan/'.Auth::guard('karyawan')->user()->foto);
+                @endphp
+                    <img src="{{ url($path) }}" alt="avatar" class="imaged w32 rounded">
+                @else
+                    <img src="assets/img/sample/avatar/avatar1.jpg" alt="avatar" class="imaged w32 rounded">
+                @endif
                 <div class="dropdown">
                     <button>
                         {{ Auth::guard('karyawan')->user()->nama }}
@@ -35,24 +41,29 @@
     </a>
     
 </nav>
+
 <div class="center-element mt-5">
-    <div class="header-ucapan ml-5">
+    <div class="header-ucapan">
         Hello, {{ Auth::guard('karyawan')->user()->nama }} !
     </div>
-    <div class="header-deskripsi mt-4 ml-5">
+    <div class="header-deskripsi">
         Temukan Semangat
     </div>
-    <div class="header-deskripsi1 ml-5">
+    <div class="header-deskripsi1">
         Dalam Setiap Langkahs Karirmu!
     </div>
-    <div class="datetime center">
-        <div class="time"></div>
-        <div class="date"></div>
-    </div>
+
 
 </div>
 
-<div class="rectangle-dashboard mt-5">
+<div class="datetime">
+    <div class="time"></div>
+    <div class="date"></div>
+</div>
+
+
+
+<div class="rectangle-dashboard">
     <div class="center-element">
     <div class="card-rectangle1 mt-5 bg-success">
         <div class="teks-presensi">
@@ -82,7 +93,7 @@
     <div class="col mt-2">
         <img src="assets/img/sample/photo/gps-bold.png" alt="image-gps" class="img-fluid">
         <div class="deskripsi-guide">
-            GPS Menyala dan berfungsi dengan baik
+            GPS Menyala dan berfungsi dengan basik
         </div>
     </div>
     <div class="col mt-2">
@@ -102,7 +113,8 @@
 </div>
     </div>
     </div>
-    <div class="center-element mt-5">
+    <br>
+    <div class="center-element">
         <div class="card-grid">
             <div class="card" style="border-radius: 20px;">
                 <h2 class="card-title">Hadir</h2>
@@ -112,25 +124,11 @@
                 <p class="card-description">{{ $rekap->jmlhadir }} Hari</p>
             </div>
             <div class="card" style="border-radius: 20px;">
-                <h2 class="card-title">Hadir</h2>
+                <h2 class="card-title">Telat</h2>
                 <div class="gambar-presensi">
-                <img src="assets/img/sample/photo/uil_entry.png" width="65px">
-                </div>
-                <p class="card-description">Hari</p>
-            </div>
-            <div class="card" style="border-radius: 20px;">
-                <h2 class="card-title">Hadir</h2>
-                <div class="gambar-presensi">
-                <img src="assets/img/sample/photo/uil_entry.png" width="65px">
+                <img src="assets/img/sample/photo/bell-ringing.png" width="65px">
                 </div>
                 <p class="card-description">{{ $rekap->jmlterlambat }} Hari</p>
-            </div>
-            <div class="card" style="border-radius: 20px;">
-                <h2 class="card-title">Hadir</h2>
-                <div class="gambar-presensi">
-                <img src="assets/img/sample/photo/uil_entry.png" width="65px">
-                </div>
-                <p class="card-description">Hari</p>
             </div>
         </div>
     </div>
