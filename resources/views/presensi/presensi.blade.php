@@ -60,7 +60,7 @@ crossorigin=""/>
 </div>
 <div class='row'>
     <div class='col'> 
-        @if ($cek > 0)
+        @if ($data > 0)
             <button id='absen' class='btn btn-danger btn-block'>Absen Pulang</button>
         @else
             <button id='absen' class='btn btn-primary btn-block'>Absen Masuk</button>
