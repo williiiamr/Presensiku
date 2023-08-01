@@ -74,4 +74,26 @@ class KaryawanController extends Controller
             dd($delete);
         }
     }
+
+    public function setting(){
+        $datagps = DB::table('info')->where('id', 1)->first();
+        return view('layouts.settings', compact('datagps'));
+    }
+
+    public function updateSetting(Request $request){
+        $latitude = $request->latitude;
+        $longitude = $request->longitude;
+        $jam_masuk = $request->jam_masuk;
+        $jam_keluar = $request->jam_keluar;
+        $data = [
+            'latitude' => $latitude,
+            'longitude' => $longitude,
+            'jam_masuk' => $jam_masuk,
+            'jam_keluar' => $jam_keluar
+        ];
+
+        $update = DB::table('info')->where('id', 1)->update($data);
+
+        return Redirect::back();
+    }
 }

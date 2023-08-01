@@ -198,6 +198,27 @@
                 </span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/settings" >
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-adjustments-alt" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <path d="M4 8h4v4h-4z"></path>
+                      <path d="M6 4l0 4"></path>
+                      <path d="M6 12l0 8"></path>
+                      <path d="M10 14h4v4h-4z"></path>
+                      <path d="M12 4l0 10"></path>
+                      <path d="M12 18l0 2"></path>
+                      <path d="M16 5h4v4h-4z"></path>
+                      <path d="M18 4l0 1"></path>
+                      <path d="M18 9l0 11"></path>
+                   </svg>
+                </span>
+                <span class="nav-link-title">
+                    Settings
+                </span>
+            </a>
+          </li>
         </ul>
         <a class = "btn btn-danger"href="/proseslogoutadmin" onclick="showSuccess()" style="margin-left: 10px; margin-bottom: 10px;" >Log out</a>
       </div>
